@@ -1,5 +1,4 @@
-button_card_templates:
-  !include_dir_merge_named ui_components/button_card_templates
+button_card_templates: !include_dir_merge_named ui_components/button_card_templates
 
 views:
   - type: custom:grid-layout
@@ -42,7 +41,6 @@ views:
             "sidebar  footer      footer  ."
             "sidebar  .           .       ."
     cards:
-
       #extra_styles fix, do not remove
       #also warn if theme is not set
 
@@ -79,7 +77,6 @@ views:
         view_layout:
           grid-area: sidebar
         cards:
-
           - type: custom:button-card
             entity: sensor.template_sidebar
             template: sidebar
@@ -87,7 +84,7 @@ views:
           - type: conditional
             conditions:
               - entity: input_boolean.laundry_display
-                state: 'on'
+                state: "on"
             card:
               type: custom:button-card
               entity: timer.laundry
@@ -110,7 +107,6 @@ views:
           grid-area: livingroom
         columns: 2
         cards:
-
           - type: custom:button-card
             entity: light.livingroom_group
             name: Belysning
@@ -137,8 +133,7 @@ views:
                     return variables.translate_unknown;
                 }
               ]]]
-            double_tap_action:
-              !include popup/livingroom_tv.yaml
+            double_tap_action: !include popup/livingroom_tv.yaml
             template:
               - base
               - icon_tv
@@ -147,8 +142,7 @@ views:
           - type: custom:button-card
             entity: switch.deltaco_sh_p01_socket
             name: Balcony
-            double_tap_action:
-              !include popup/livingroom_balcony.yaml
+            double_tap_action: !include popup/livingroom_balcony.yaml
             template:
               - base
               - icon_hue
@@ -166,7 +160,6 @@ views:
           grid-area: studio
         columns: 2
         cards:
-
           - type: custom:button-card
             entity: light.studio_computer
             name: Computer lamp
@@ -184,8 +177,7 @@ views:
           - type: custom:button-card
             entity: switch.imac
             name: Computer
-            double_tap_action:
-              !include popup/studio_computer.yaml
+            double_tap_action: !include popup/studio_computer.yaml
             template:
               - base
               - icon_imac
@@ -206,8 +198,7 @@ views:
           - type: custom:button-card
             entity: switch.gosund_monitors_switch
             name: Monitors
-            double_tap_action:
-              !include popup/studio_monitors.yaml
+            double_tap_action: !include popup/studio_monitors.yaml
             template:
               - base
               - icon_monitors
@@ -219,7 +210,7 @@ views:
                   let volume = states['sensor.monitors_volume'];
                   if (volume) return parseInt(volume.state);
                 ]]]
-              circle_input_unit: '%'
+              circle_input_unit: "%"
 
       #################################################
       #                                               #
@@ -233,7 +224,6 @@ views:
           grid-area: bedroom
         columns: 2
         cards:
-
           - type: custom:button-card
             entity: light.bedroom_group
             name: Sänglampor
@@ -244,8 +234,7 @@ views:
           - type: custom:button-card
             entity: climate.ac
             name: Climate
-            double_tap_action:
-              !include popup/bedroom_climate.yaml
+            double_tap_action: !include popup/bedroom_climate.yaml
             template:
               - base
               - icon_climate
@@ -259,13 +248,12 @@ views:
                           : Math.round(entity.attributes.current_temperature).toString();
                   }
                 ]]]
-              circle_input_unit: '°C'
+              circle_input_unit: "°C"
 
           - type: custom:button-card
             entity: switch.ps5_635_power
             name: Playstation
-            double_tap_action:
-              !include popup/bedroom_playstation.yaml
+            double_tap_action: !include popup/bedroom_playstation.yaml
             template:
               - base
               - icon_ps5
@@ -274,8 +262,7 @@ views:
           - type: custom:button-card
             entity: media_player.samsung
             name: "Tv\u00B2"
-            double_tap_action:
-              !include popup/bedroom_tv2.yaml
+            double_tap_action: !include popup/bedroom_tv2.yaml
             template:
               - base
               - icon_tv
@@ -293,17 +280,14 @@ views:
           grid-area: media
         columns: 1
         cards:
-
           - type: custom:swipe-card
             parameters:
               speed: 550
               spaceBetween: 40
               threshold: 5
             cards:
-
               - type: horizontal-stack
                 cards:
-
                   - type: conditional
                     conditions:
                       - entity: select.conditional_media
@@ -376,7 +360,6 @@ views:
               - type: grid
                 columns: 2
                 cards:
-
                   - type: custom:button-card
                     entity: media_player.livingroom
                     triggers_update: sensor.youtube_watching
@@ -419,7 +402,6 @@ views:
           grid-area: other
         columns: 2
         cards:
-
           - type: custom:button-card
             entity: light.bathroom_group
             name: Bathroom
@@ -430,8 +412,7 @@ views:
           - type: custom:button-card
             entity: switch.gosund_fan_switch
             name: "Fan\u00B2"
-            double_tap_action:
-              !include popup/studio_fan.yaml
+            double_tap_action: !include popup/studio_fan.yaml
             template:
               - base
               - icon_fan2
@@ -463,14 +444,12 @@ views:
           grid-area: home
         columns: 2
         cards:
-
           - type: custom:button-card
             entity: person.matte
             name: Mattias
             triggers_update:
               - sensor.matte_last_changed
-            double_tap_action:
-              !include popup/home_mattias.yaml
+            double_tap_action: !include popup/home_mattias.yaml
             variables:
               retain: sensor.matte_last_changed
             template:
@@ -482,8 +461,7 @@ views:
             name: Sanja
             triggers_update:
               - sensor.sanja_last_changed
-            double_tap_action:
-              !include popup/home_sanja.yaml
+            double_tap_action: !include popup/home_sanja.yaml
             variables:
               retain: sensor.sanja_last_changed
             template:
@@ -514,12 +492,10 @@ views:
         view_layout:
           grid-area: footer
         cards:
-
           - type: custom:button-card
             name: >
               <ha-icon icon="mdi:nas"></ha-icon> NAS
-            tap_action:
-              !include popup/footer_nas.yaml
+            tap_action: !include popup/footer_nas.yaml
             triggers_update:
               - binary_sensor.nas_update_available
               - sensor.nas_volume_1_status
@@ -541,8 +517,7 @@ views:
           - type: custom:button-card
             name: >
               <ha-icon icon="mdi:arrow-up-bold-circle-outline"></ha-icon> Uppdatera
-            tap_action:
-              !include popup/footer_updates.yaml
+            tap_action: !include popup/footer_updates.yaml
             triggers_update:
               - sensor.hacs
               - sensor.docker_hub_beta
@@ -570,8 +545,7 @@ views:
           - type: custom:button-card
             name: >
               <ha-icon icon="mdi:robot-vacuum-variant"></ha-icon> Städa
-            tap_action:
-              !include popup/footer_vacuum.yaml
+            tap_action: !include popup/footer_vacuum.yaml
             triggers_update:
               - sensor.date
             variables:
@@ -585,15 +559,13 @@ views:
           - type: custom:button-card
             name: >
               <ha-icon icon="mdi:chart-line-variant"></ha-icon> History
-            tap_action:
-              !include popup/footer_history.yaml
+            tap_action: !include popup/footer_history.yaml
             template: footer
 
           - type: custom:button-card
             name: >
               <ha-icon icon="mdi:tablet"></ha-icon> Tablet
-            tap_action:
-              !include popup/footer_tablet.yaml
+            tap_action: !include popup/footer_tablet.yaml
             variables:
               notify: >
                 [[[
@@ -605,8 +577,7 @@ views:
           - type: custom:button-card
             name: >
               <ha-icon icon="mdi:router-wireless"></ha-icon> Router
-            tap_action:
-              !include popup/footer_router.yaml
+            tap_action: !include popup/footer_router.yaml
             triggers_update:
               - update.unifi_dream_machine
               - binary_sensor.template_udm_internet
@@ -624,8 +595,7 @@ views:
           - type: custom:button-card
             name: >
               <ha-icon icon="mdi:raspberry-pi"></ha-icon> RPi
-            tap_action:
-              !include popup/footer_rpi.yaml
+            tap_action: !include popup/footer_rpi.yaml
             variables:
               notify: >
                 [[[
