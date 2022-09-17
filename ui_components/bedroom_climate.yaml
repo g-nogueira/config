@@ -93,13 +93,13 @@ browser_mod:
             - entity: timer.climate
 
             - entity: sensor.broadlink_temperature
-              name: Rumstemperatur
+              name: Room temperature
             - entity: sensor.broadlink_humidity
-              name: Luftfuktighet
+              name: Humidity
 
         - type: custom:apexcharts-card
           layout: minimal
-          locale: se
+          locale: en
           graph_span: 8h
           show:
             loading: false

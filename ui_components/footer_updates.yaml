@@ -26,31 +26,31 @@ browser_mod:
         square: false
         cards:
           - type: custom:button-card
-            entity: sensor.current_version
+            entity: sensor.home_assistant_versions
             template: updates_hass
-            variables:
-              latest: sensor.docker_hub
-              latest_beta: sensor.docker_hub_beta
-              release_notes: sensor.hass_release_notes
-              release_notes_beta: sensor.hass_release_notes_beta
+            # variables:
+            #   latest: sensor.docker_hub
+            #   latest_beta: sensor.docker_hub_beta
+            #   release_notes: sensor.hass_release_notes
+            #   release_notes_beta: sensor.hass_release_notes_beta
 
           - type: custom:button-card
-            entity: sensor.current_version
-            name: Uppdatera HASS
-            variables:
-              latest: sensor.docker_hub
-              latest_beta: sensor.docker_hub_beta
+            entity: sensor.home_assistant_versions
+            name: Update HASS
+            # variables:
+            #   latest: sensor.docker_hub
+            #   latest_beta: sensor.docker_hub_beta
             tap_action:
               action: call-service
               service: browser_mod.sequence
               service_data:
                 sequence:
-                  - service: browser_mod.notification
-                    data:
-                      message: Starting watchtower...
-                  - service: switch.turn_on
-                    data:
-                      entity_id: switch.docker_watchtower
+                  # - service: browser_mod.notification
+                  #   data:
+                  #     message: Starting watchtower...
+                  # - service: switch.turn_on
+                  #   data:
+                  #     entity_id: switch.docker_watchtower
             template: updates_hass_icon_name
 
           - type: custom:button-card

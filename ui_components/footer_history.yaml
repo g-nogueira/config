@@ -70,7 +70,7 @@ browser_mod:
                 height: 1
           series:
             - entity: sensor.date
-              name: Förbrukning
+              name: Consumption
               unit: kWh
               type: column
               color: rgba(228,224,17,1)
@@ -154,7 +154,7 @@ browser_mod:
                 offsetX: -1
                 formatter: |
                   EVAL:(timestamp) => {
-                    return new Date(timestamp).toLocaleString('sv-SE',{day: 'numeric', month:'short'});
+                    return new Date(timestamp).toLocaleString('en',{day: 'numeric', month:'short'});
                   }
             chart:
               fontFamily: SF Pro Text
@@ -179,12 +179,12 @@ browser_mod:
           series:
             - entity: sensor.date
               curve: smooth
-              name: Mattias
+              name: Gustavo
               color: '#9a0ca3'
               data_generator: |-
                 let params = new URLSearchParams({
                   db: 'home_assistant',
-                  q: "SELECT value FROM kg WHERE entity_id = 'mattias_weight'",
+                  q: "SELECT value FROM kg WHERE entity_id = 'gustavo_weight'",
                 });
 
                 async function request() {
@@ -274,7 +274,7 @@ browser_mod:
           series:
             - entity: sensor.date
               curve: smooth
-              name: Mattias
+              name: Gustavo
               color: '#9a0ca3'
               data_generator: |-
                 let token_url = 'http://192.168.1.241:8123/local/.apex.json';

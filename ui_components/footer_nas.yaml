@@ -72,7 +72,7 @@ browser_mod:
             class: header
           entities:
             - entity: sensor.current_version
-              name: Installerad
+              name: Installed
               icon: mdi:home-assistant
 
             - entity: switch.docker_watchtower
@@ -124,7 +124,7 @@ browser_mod:
             - type: custom:hui-horizontal-stack-card
               cards:
                 - type: custom:button-card
-                  name: Serveromstart
+                  name: Server restart
                   icon: mdi:reload
                   tap_action:
                     action: call-service

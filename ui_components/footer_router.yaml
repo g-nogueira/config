@@ -60,7 +60,7 @@ browser_mod:
             type: horizontal-stack
             cards:
               - type: custom:button-card
-                name: Nätverksenheter
+                name: Network devices
                 icon: mdi:devices
                 tap_action:
                   action: url

@@ -12,9 +12,9 @@ browser_mod:
             class: content
           entities:
 
-            - entity: switch.gosund_fan_switch
+            - entity: fan.mi_smart_standing_fan_2
               secondary_info: last-changed
 
             - type: custom:slider-entity-row
-              entity: input_number.fan_timer
+              entity: fan.mi_smart_standing_fan_2
               hide_state: false
