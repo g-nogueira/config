@@ -2,7 +2,7 @@ action: fire-dom-event
 browser_mod:
   service: browser_mod.popup
   data:
-    title: Klimat
+    title: Climate
     content:
       type: vertical-stack
       cards:
@@ -19,7 +19,7 @@ browser_mod:
 
             - type: custom:mushroom-climate-card
               entity: climate.ac
-              name: Klimat
+              name: Climate
               icon: mdi:home-thermometer
               hvac_modes:
                 - 'off'

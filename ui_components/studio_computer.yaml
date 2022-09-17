@@ -13,7 +13,7 @@ action: fire-dom-event
 browser_mod:
   service: browser_mod.popup
   data:
-    title: Dator
+    title: Computer
     content:
       type: vertical-stack
       cards:
@@ -105,7 +105,7 @@ browser_mod:
                   cards:
 
                     - type: custom:button-card
-                      name: Försätt i vila
+                      name: Sleep
                       icon: mdi:power-sleep
                       tap_action:
                         action: call-service
@@ -113,7 +113,7 @@ browser_mod:
                       template: icon_name
 
                     - type: custom:button-card
-                      name: Starta om
+                      name: Restart
                       icon: mdi:restart
                       tap_action:
                         action: call-service

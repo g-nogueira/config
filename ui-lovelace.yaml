@@ -168,7 +168,7 @@ views:
         cards:
 
           - type: custom:button-card
-            entity: light.studio_dator
+            entity: light.studio_computer
             name: Computer lamp
             template:
               - light
@@ -183,9 +183,9 @@ views:
 
           - type: custom:button-card
             entity: switch.imac
-            name: Dator
+            name: Computer
             double_tap_action:
-              !include popup/studio_dator.yaml
+              !include popup/studio_computer.yaml
             template:
               - base
               - icon_imac
@@ -205,9 +205,9 @@ views:
 
           - type: custom:button-card
             entity: switch.gosund_monitors_switch
-            name: Monitorer
+            name: Monitors
             double_tap_action:
-              !include popup/studio_monitorer.yaml
+              !include popup/studio_monitors.yaml
             template:
               - base
               - icon_monitors
@@ -243,9 +243,9 @@ views:
 
           - type: custom:button-card
             entity: climate.ac
-            name: Klimat
+            name: Climate
             double_tap_action:
-              !include popup/bedroom_klimat.yaml
+              !include popup/bedroom_climate.yaml
             template:
               - base
               - icon_climate
@@ -316,11 +316,11 @@ views:
                         state_not: Spotify
 
                       - entity: select.conditional_media
-                        state_not: Kök
+                        state_not: Kitchen
                     card:
                       type: custom:button-card
                       entity: sensor.plex_recently_added
-                      name: Senast tillagt
+                      name: Recently added
                       tap_action:
                         action: none
                       template:
@@ -365,7 +365,7 @@ views:
                   - type: conditional
                     conditions:
                       - entity: select.conditional_media
-                        state: Kök
+                        state: Kitchen
                     card:
                       type: custom:button-card
                       entity: media_player.kok
@@ -421,8 +421,8 @@ views:
         cards:
 
           - type: custom:button-card
-            entity: light.badrum_group
-            name: Badrum
+            entity: light.bathroom_group
+            name: Bathroom
             template:
               - light
               - icon_bathroom
@@ -492,7 +492,7 @@ views:
 
           - type: custom:button-card
             entity: script.home_leave
-            name: Stäng allt
+            name: Close everything
             template:
               - base
               - icon_away
@@ -584,14 +584,14 @@ views:
 
           - type: custom:button-card
             name: >
-              <ha-icon icon="mdi:chart-line-variant"></ha-icon> Historik
+              <ha-icon icon="mdi:chart-line-variant"></ha-icon> History
             tap_action:
               !include popup/footer_history.yaml
             template: footer
 
           - type: custom:button-card
             name: >
-              <ha-icon icon="mdi:tablet"></ha-icon> Platta
+              <ha-icon icon="mdi:tablet"></ha-icon> Tablet
             tap_action:
               !include popup/footer_tablet.yaml
             variables:

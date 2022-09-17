@@ -73,7 +73,7 @@ browser_mod:
               entities:
 
                 - entity: sensor.template_fullykiosk_memory
-                  name: Minne - 2GB
+                  name: Memory - 2GB
                   icon: mdi:memory
                   tap_action:
                     action: call-service
@@ -127,7 +127,7 @@ browser_mod:
                     sequence:
                       - service: browser_mod.notification
                         data:
-                          message: Startar om Fully Kiosk Browser...
+                          message: Restarting Fully Kiosk Browser...
                       - service: button.press
                         data:
                           entity_id: button.galaxy_tab_a_restart_browser
