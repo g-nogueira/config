@@ -27,13 +27,13 @@
           {% elif time <= 7 %} Good morning {{'\U0001F4A9'}}
           {% elif time <= 9 %} Good morning {{'\u2615\uFE0F'}}
           {% elif time <= 10 %} Good morning {{'\U0001F642'}}
-          {% elif time <= 13 %} God day {{'\U0001F60A'}}
-          {% elif time <= 15 %} God day {{'\U0001F60E'}}
-          {% elif time <= 17 %} God day {{'\U0001F44B\U0001F3FB'}}
-          {% elif time <= 19 %} God evening {{'\U0001F44B\U0001F3FB'}}
-          {% elif time <= 22 %} God evening {{'\U0001F60C'}}
-          {% elif time <= 23 %} God evening {{'\U0001F974'}}
-          {% else %} God evening {{'\U0001F974'}}
+          {% elif time <= 13 %} Good day {{'\U0001F60A'}}
+          {% elif time <= 15 %} Good day {{'\U0001F60E'}}
+          {% elif time <= 17 %} Good day {{'\U0001F44B\U0001F3FB'}}
+          {% elif time <= 19 %} Good evening {{'\U0001F44B\U0001F3FB'}}
+          {% elif time <= 22 %} Good evening {{'\U0001F60C'}}
+          {% elif time <= 23 %} Good evening {{'\U0001F974'}}
+          {% else %} Good evening {{'\U0001F974'}}
           {% endif %}
           </b>
         active: >
@@ -49,6 +49,11 @@
             states.binary_sensor.computer_state,
           ] %}
 
+          {% set battery = [
+            states.fan.mi_smart_standing_fan_2,
+            states.binary_sensor.computer_state,
+          ] %}
+
           {% set lights_on = lights | selectattr('state','eq','on') | list %}
           {% set lights_name = lights | selectattr('state','eq','on') | map(attribute='name') | join(', ') %}
 
@@ -56,7 +61,7 @@
           {% set devices_name = devices_on | map(attribute='name') | join(', ') %}
 
           {% if (lights_on | length == 0) and (devices_on | length > 0) %}
-            {{ devices_name | regex_replace(',([^,]*)$',' and\\1') }} are on
+            {{ devices_name | regex_replace(',([^,]*)$',' and\\1') }} is on
 
           {% elif (lights_on | length == 1) and (devices_on | length == 1) %}
             {{ lights_name }} and {{devices_name }} are on
@@ -83,7 +88,7 @@
         mailbox: >
           {% set mailbox = states('sensor.mailbox') %}
           {% if mailbox | int(default=0) > 0 %}
-            {{ '\U0001F4EC' }} <font color='#6a7377'><b>Brevlåda ({{ mailbox }})</b></font>
+            {{ '\U0001F4EC' }} <font color='#6a7377'><b>Mailbox ({{ mailbox }})</b></font>
           {% endif %}
         vacuum: >
           {% set entity_id = 'vacuum.wally' %}
@@ -121,11 +126,10 @@
           {% endif %}
         battery: >
           {% set entities = states.sensor 
-            | selectattr('entity_id', 'search', 'battery')
-            | rejectattr('entity_id', 'search', 'iphone')
+            | selectattr('entity_id', 'search', 'battery_level')
             | map(attribute = 'entity_id') | list %}
           {% for sensor in entities if states(sensor) != 'unknown' and states(sensor) !=
-          'unavailable' and states(sensor) != 'None' and states(sensor) | int(default=0) <= 5 %}
-            {% if loop.first %} {{'\u26A0\uFE0F'}} Battery {% else %}, {% endif %}
-            {{ state_attr(sensor, 'friendly_name') }} {{ states(sensor) }}%
-          {% endfor %}
+          'unavailable' and states(sensor) != 'None' and states(sensor) | int(default=0) <= 20 %}
+          {% if loop.first %}
+          {{'\u26A0\uFE0F Battery'}}
+          {% endif %}{{ state_attr(sensor, 'friendly_name') }} {{ states(sensor) }}%{% endfor %}
