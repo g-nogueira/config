@@ -3,9 +3,8 @@ update_entities:
     [[[
       hass.callService('homeassistant', 'update_entity', {
           entity_id: [
-            'sensor.imac_cpu',
-            'sensor.imac_mem',
-            'binary_sensor.template_imac_vpn'
+            'sensor.desktop_f4s1rnq_cpuload',
+            'sensor.desktop_f4s1rnq_memoryusage'
           ]
       });
     ]]]
@@ -17,12 +16,11 @@ browser_mod:
     content:
       type: vertical-stack
       cards:
-
         ### ON ###
         - type: conditional
           conditions:
-            - entity: switch.imac
-              state: 'on'
+            - entity: binary_sensor.computer_state
+              state: "on"
           card:
             type: vertical-stack
             cards:
@@ -31,65 +29,65 @@ browser_mod:
                 card_mod:
                   class: content
                 entities:
-
-                  - entity: switch.imac
-                    name: iMac
+                  - entity: binary_sensor.computer_state
+                    name: DESKTOP
                     secondary_info: last-changed
 
                   - type: custom:bar-card
                     width: 55%
                     height: 2em
                     decimal: 0
-                    unit_of_measurement: '%'
+                    unit_of_measurement: "%"
                     positions:
                       icon: outside
-                      indicator: 'off'
+                      indicator: "off"
                       name: outside
                     severity:
-                      - color: '#6d2525'
+                      - color: "#6d2525"
                         from: 90
                         to: 999
                     entity_row: true
                     entities:
-
-                      - entity: sensor.imac_cpu
+                      - entity: sensor.desktop_f4s1rnq_cpuload
                         tap_action:
                           action: call-service
                           service: homeassistant.update_entity
                           service_data:
-                            entity_id: sensor.imac_cpu
+                            entity_id: sensor.desktop_f4s1rnq_cpuload
 
-                      - entity: sensor.imac_mem
+                      - entity: sensor.desktop_f4s1rnq_memoryusage
                         tap_action:
                           action: call-service
                           service: homeassistant.update_entity
                           service_data:
-                            entity_id: sensor.imac_mem
+                            entity_id: sensor.desktop_f4s1rnq_memoryusage
 
-                      - entity: sensor.template_imac_macintosh_hd
+                      - entity: sensor.desktop_f4s1rnq_storage_c
+                        attribute: UsedSpacePercentage
                         tap_action:
                           action: call-service
                           service: homeassistant.update_entity
                           service_data:
-                            entity_id: sensor.template_imac_macintosh_hd
+                            entity_id: sensor.desktop_f4s1rnq_storage_c
 
-                  - entity: automation.imac_notification_motion_hall
-                  - entity: sensor.imac_uptime
+                  # - entity: automation.imac_notification_motion_hall
+                  # - entity: sensor.imac_uptime
 
-                  - entity: binary_sensor.template_imac_vpn
-                    tap_action:
-                      action: call-service
-                      service: homeassistant.update_entity
-                      service_data:
-                        entity_id: sensor.imac_ip
-                    card_mod:
-                      style: |
-                        :host {
-                          --paper-item-icon-color:
-                            {{ is_state(config.entity, 'Ansluten') | iif('var(--state-icon-active-color)', 'red') }};
-                          }
+                  # - entity: binary_sensor.template_imac_vpn
+                  #   tap_action:
+                  #     action: call-service
+                  #     service: homeassistant.update_entity
+                  #     service_data:
+                  #       entity_id: sensor.imac_ip
+                  #   card_mod:
+                  #     style: |
+                  #       :host {
+                  #         --paper-item-icon-color:
+                  #           {{ is_state(config.entity, 'Ansluten') | iif('var(--state-icon-active-color)', 'red') }};
+                  #         }
 
-                  - entity: input_boolean.imac_lock
+                  # - entity: button.desktop_f4s1rnq_hibernate
+                  #   name: Turn off
 
               - type: custom:mod-card
                 card_mod:
@@ -100,16 +98,14 @@ browser_mod:
                         padding: var(--tablet-popup-button-padding);
                       }
                 card:
-
                   type: horizontal-stack
                   cards:
-
                     - type: custom:button-card
                       name: Sleep
-                      icon: mdi:power-sleep
+                      icon: mdi:power
                       tap_action:
                         action: call-service
-                        service: shell_command.imac_sleep
+                        service: script.desktop_turn_off
                       template: icon_name
 
                     - type: custom:button-card
@@ -117,15 +113,16 @@ browser_mod:
                       icon: mdi:restart
                       tap_action:
                         action: call-service
-                        service: shell_command.imac_restart
+                        service: button.press
+                        target:
+                          entity_id: button.desktop_f4s1rnq_restart
                       template: icon_name
-
 
         ### OFF ###
         - type: conditional
           conditions:
-            - entity: switch.imac
-              state: 'off'
+            - entity: binary_sensor.computer_state
+              state: "off"
           card:
             type: vertical-stack
             cards:
@@ -135,12 +132,11 @@ browser_mod:
                 card_mod:
                   class: content
                 entities:
-
-                  - entity: switch.imac
-                    name: iMac
+                  - entity: binary_sensor.computer_state
+                    name: DESKTOP
                     secondary_info: last-changed
-                  - entity: automation.imac_notification_motion_hall
-                  - entity: input_boolean.imac_lock
+                  # - entity: automation.imac_notification_motion_hall
+                  # - entity: input_boolean.imac_lock
 
               - type: custom:mod-card
                 card_mod:
@@ -151,16 +147,12 @@ browser_mod:
                         padding: var(--tablet-popup-button-padding);
                       }
                 card:
-
                   type: horizontal-stack
                   cards:
-
                     - type: custom:button-card
-                      name: Starta iMac
+                      name: Power On
                       icon: mdi:power
                       tap_action:
                         action: call-service
-                        service: switch.turn_on
-                        service_data:
-                          entity_id: switch.imac
+                        service: script.desktop_turn_on
                       template: icon_name
