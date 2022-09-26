@@ -101,12 +101,80 @@ views:
       #                                               #
       #################################################
 
-      # - type: grid
-      #   title: Livingroom
-      #   view_layout:
-      #     grid-area: livingroom
-      #   columns: 2
-      #   cards:
+      - type: grid
+        title: Livingroom
+        view_layout:
+          grid-area: livingroom
+        columns: 2
+        cards:
+          - type: custom:button-card
+            entity: vacuum.wally
+            # aspect_ratio: 1
+            name: Roborock
+            # color_type: card
+            # show_state: true
+            # show_entity_picture: true
+            template:
+              - base
+              - icon_wally
+            styles:
+              # name:
+              #   - justify-self: start
+              #   - padding-left: 7px
+              #   - font-weight: bold
+              #   - font-family: Sans-serif
+              #   - font-size: 13px
+              # img_cell:
+              #   - justify-content: start
+              #   - padding-left: 20px
+              #   - padding-top: 13px
+              #   - align-items: start
+              #   - margin: none
+              # state:
+              #   - justify-self: start
+              #   - font-color: red
+              #   - font-size: 15px
+              #   - padding-left: 7px
+              #   - padding-bottom: 10px
+              #   - text-transform: capitalize
+              #   - font-family: Sans-serif
+              #   - font-size: 13px
+              # icon:
+              #   - width: 30%
+              custom_fields:
+                Brightness:
+                  - position: absolute
+                  - left: 60%
+                  - top: 10%
+                  - width: 60%
+            state:
+              - value: returning
+                entity_picture: \local\images\icons8-robot-vacuum-cleaner-64.png
+                color: white
+              - value: docked
+                entity_picture: \local\images\icons8-robot-vacuum-cleaner-64.png
+                color: rgba(65,65,63,0.2)
+                styles:
+                  card:
+                    - filter: opacity(50%)
+                  icon:
+                    - filter: grayscale(100%)
+              - value: cleaning
+                entity_picture: \local\images\icons8-robot-vacuum-cleaner-64.png
+                color: rgba(65,65,63,0.2)
+                styles:
+                  card:
+                    - filter: opacity(75%)
+                  icon:
+                    - filter: grayscale(100%)
+              - value: unavailable
+                entity_picture: \local\images\icons8-robot-vacuum-cleaner-64.png
+                color: rgba(65,65,63,0.2)
+                styles:
+                  card:
+                    - filter: opacity(50%)
+                  icon:
+                    - filter: grayscale(100%)
       #     - type: custom:button-card
       #       entity: light.livingroom_group
       #       name: Lighting
@@ -150,26 +218,26 @@ views:
 
       #################################################
       #                                               #
-      #                    STUDIO                     #
+      #                OFFICE/STUDIO                  #
       #                                               #
       #################################################
 
       - type: grid
-        title: Studio
+        title: Office
         view_layout:
           grid-area: studio
         columns: 2
         cards:
           - type: custom:button-card
             entity: light.computer_light
-            name: Computer light
+            name: Monitor
             template:
               - light
-              - icon_hue
+              - icon_imac
 
           - type: custom:button-card
             entity: light.sonoff_office_light_plug
-            name: Ceiling light
+            name: Ceiling
             template:
               - light
               - icon_spot
@@ -229,7 +297,23 @@ views:
             name: Ceiling light
             template:
               - light
+              - icon_hue
+
+          - type: custom:button-card
+            entity: light.bed_light
+            name: Bed light
+            template:
+              - light
               - icon_lamp
+
+          - type: custom:button-card
+            entity: fan.mi_smart_standing_fan_2
+            name: "Fan"
+            double_tap_action: !include ui_components/studio_fan.yaml
+            template:
+              - base
+              - icon_fan2
+              - loader
 
           # - type: custom:button-card
           #   entity: climate.ac
@@ -286,6 +370,53 @@ views:
               spaceBetween: 40
               threshold: 5
             cards:
+              - type: grid
+                columns: 2
+                cards:
+                  # - type: custom:button-card
+                  #   entity: media_player.livingroom
+                  #   triggers_update: sensor.youtube_watching
+                  #   name: Livingroom
+                  #   template:
+                  #     - media
+                  #     - icon_apple_tv
+
+                  # - type: custom:button-card
+                  #   entity: media_player.speaker
+                  #   triggers_update: sensor.youtube_watching
+                  #   name: Bedroom
+                  #   template:
+                  #     - media
+                  #     - icon_apple_tv
+
+                  - type: custom:button-card
+                    entity: media_player.spotify_gustavo_reis
+                    name: Spotify
+                    template:
+                      - media
+                      - icon_spotify
+
+                  - type: custom:button-card
+                    entity: media_player.kitchen_speaker
+                    name: Nest Mini
+                    template:
+                      - media
+                      - icon_nest_mini
+
+                  - type: custom:button-card
+                    entity: media_player.office_speaker
+                    name: Nest Mini
+                    template:
+                      - media
+                      - icon_nest_mini
+
+                  - type: custom:button-card
+                    entity: media_player.bedside_speaker
+                    name: Nest Mini
+                    template:
+                      - media
+                      - icon_nest_mini
+
               - type: horizontal-stack
                 cards:
                   - type: conditional
@@ -335,7 +466,7 @@ views:
                       entity: media_player.office_speaker
                       template:
                         - conditional_media
-                        - icon_nest_mini                  
+                        - icon_nest_mini
 
                   - type: conditional
                     conditions:
@@ -369,39 +500,6 @@ views:
                       template:
                         - conditional_media
                         - icon_nest_mini
-
-              - type: grid
-                columns: 2
-                cards:
-                  # - type: custom:button-card
-                  #   entity: media_player.livingroom
-                  #   triggers_update: sensor.youtube_watching
-                  #   name: Livingroom
-                  #   template:
-                  #     - media
-                  #     - icon_apple_tv
-
-                  # - type: custom:button-card
-                  #   entity: media_player.speaker
-                  #   triggers_update: sensor.youtube_watching
-                  #   name: Bedroom
-                  #   template:
-                  #     - media
-                  #     - icon_apple_tv
-
-                  - type: custom:button-card
-                    entity: media_player.spotify_gustavo_reis
-                    name: Spotify
-                    template:
-                      - media
-                      - icon_spotify
-
-                  - type: custom:button-card
-                    entity: media_player.kitchen_speaker
-                    name: Nest Mini
-                    template:
-                      - media
-                      - icon_nest_mini
 
       #################################################
       #                                               #
@@ -462,7 +560,7 @@ views:
             name: Gustavo
             triggers_update:
               - sensor.pixel_5_geocoded_location
-            double_tap_action: !include ui_components/home_gustavo.yaml
+            hold_action: !include ui_components/home_gustavo.yaml
             variables:
               retain: sensor.pixel_5_geocoded_location
             template:

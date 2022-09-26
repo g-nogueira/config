@@ -2,7 +2,7 @@ action: fire-dom-event
 browser_mod:
   service: browser_mod.popup
   data:
-    title: Matte
+    title: Gustavo
     style: >
       --popup-max-width: 400px;
     content:
@@ -12,7 +12,7 @@ browser_mod:
           card_mod:
             class: content
           entities:
-            - entity: person.matte
+            - entity: person.gustavo_nogueira
               secondary_info: last-changed
 
         - type: history-graph
@@ -22,7 +22,7 @@ browser_mod:
                 padding: 0 2em 1em 1.6em !important;
               }
           entities:
-            - entity: person.matte
+            - entity: person.gustavo_nogueira
 
         - type: glance
           card_mod:
