@@ -73,6 +73,31 @@ icon_new_desktop:
         </g>
       </svg>
 
+icon_new_monitor:
+  custom_fields:
+    icon: >
+      [[[
+          let state = variables.state_on && variables.timeout < 2000 ? 'on' : null;
+          return `
+            <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 64 64">
+              <style>
+                svg {
+                  ${
+                    variables.state_on && entity.attributes.brightness 
+                      ? "--light-color: #5ba1dd;"
+                      : "" 
+                  }
+                }
+              </style>
+              <g data-name="Layer 32">
+                <rect class="${state} light-color" width="58" height="36" x="3" y="9" fill="#5ba1dd" data-original="#5ba1dd" rx="2"/>
+                <path fill="#c7ced1" d="M3 39h58v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4zm39 16H22l4-10h12z" data-original="#c7ced1"/>
+                <path fill="#b3babc" d="M57 41h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2z" data-original="#b3babc"/>
+                <path class="${state} light-color" style="filter: brightness(.7);" fill="#5ba1dd" d="M13 34a1 1 0 0 0 .707-.293l17-17a1 1 0 0 0-1.414-1.414l-17 17A1 1 0 0 0 13 34zm21-6a1 1 0 0 0 .707-.293l14-14a1 1 0 0 0-1.414-1.414l-14 14A1 1 0 0 0 34 28zm-5.707 3.293-3 3a1 1 0 1 0 1.414 1.414l3-3a1 1 0 0 0-1.414-1.414zm12 3.414a1 1 0 0 0 1.414 0l10-10a1 1 0 0 0-1.414-1.414l-10 10a1 1 0 0 0 0 1.414z" data-original="#2d7fb2"/>
+              </g>
+            </svg>`;
+      ]]]
+
 icon_new_phone:
   custom_fields:
     icon: >
@@ -143,20 +168,242 @@ icon_new_woman:
         </g>
       </svg>
 
-icon_new_bulb:
+icon_new_man:
   custom_fields:
     icon: >
       <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 64 64">
-        <g xmlns="http://www.w3.org/2000/svg" data-name="Layer 32">
-          <rect width="20" height="4" x="22" y="53" fill="#707172" data-original="#707172" rx="2"/>
-          <rect width="20" height="4" x="22" y="49" fill="#565656" data-original="#565656" rx="2"/>
-          <rect width="20" height="4" x="22" y="45" fill="#707172" data-original="#707172" rx="2"/>
-          <path fill="#ffcb4f" d="M52 23a20 20 0 1 0-31.73 16.178A4.082 4.082 0 0 1 22 42.47v.446A2.019 2.019 0 0 0 24 45h16a2 2 0 0 0 2-2v-.535a4.048 4.048 0 0 1 1.71-3.272A19.948 19.948 0 0 0 52 23z" data-original="#ffcb4f"/>
-          <path fill="#565656" d="M26 57h12a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z" data-original="#565656"/>
-          <path fill="#fcbe42" d="m47.265 13.469-1.7 1.062a16.036 16.036 0 0 1 1.4 2.823l1.87-.708a18.075 18.075 0 0 0-1.57-3.177zM37.408 7.94a16.129 16.129 0 0 1 5.886 3.738l1.413-1.416a18.146 18.146 0 0 0-6.622-4.2z" data-original="#fcbe42"/>
-          <path fill="#efbf4c" d="M36 45h-2V28h-4v17h-2V28h-2.5a4.5 4.5 0 1 1 4.5-4.5V26h4v-2.5a4.5 4.5 0 1 1 4.5 4.5H36zm0-19h2.5a2.5 2.5 0 1 0-2.5-2.5zm-10.5-5a2.5 2.5 0 0 0 0 5H28v-2.5a2.5 2.5 0 0 0-2.5-2.5z" data-original="#c7ced1"/>
+        <g data-name="Layer 22">
+          <path fill="#ffd3b6" d="M21 31v8a3 3 0 0 0 6 0v-8z" data-original="#ffd3b6"></path>
+          <path fill="#98deea" d="M47 51v12H1V51a12 12 0 0 1 12-12h8a3 3 0 0 0 6 0h8a12 12 0 0 1 12 12z" data-original="#98deea"></path>
+          <path fill="#82d0d8" d="M16 39h-3A12 12 0 0 0 1 51v12h3V51a12 12 0 0 1 12-12z" data-original="#82d0d8"></path>
+          <path fill="#f9b995" d="M21 36.575a10.8 10.8 0 0 0 6 0V31h-6z" data-original="#f9b995"></path>
+          <path fill="#ffd3b6" d="M13 11h22v13a11 11 0 0 1-11 11 11 11 0 0 1-11-11V11z" data-original="#ffd3b6"></path>
+          <path fill="#f9b995" d="M16 24V11h-3v13a10.924 10.924 0 0 0 12.5 10.886A10.993 10.993 0 0 1 16 24z" data-original="#f9b995"></path>
+          <path fill="#ffd3b6" d="M1 57h6a2 2 0 0 1 2 2v4H1v-6z" data-original="#ffd3b6"></path>
+          <path fill="#f9b995" d="M1 57h3v6H1z" data-original="#f9b995"></path>
+          <path fill="#ffd3b6" d="M47 63h-8v-4a2 2 0 0 1 2-2h6v6z" data-original="#ffd3b6"></path>
+          <path fill="#f9b995" d="M42 63h-3v-4a2 2 0 0 1 2-2h1v6zM12 13h1v6h-1a3 3 0 0 1-3-3 3 3 0 0 1 3-3z" data-original="#f9b995"></path>
+          <path fill="#ffd3b6" d="M36 19h-1v-6h1a3 3 0 0 1 3 3 3 3 0 0 1-3 3z" data-original="#ffd3b6"></path>
+          <path fill="#7a838b" d="m35 16-4-5-.828.828A4 4 0 0 1 27.343 13H17a8 8 0 0 1-8-8V1h21.5A1.5 1.5 0 0 1 32 2.5v1A1.5 1.5 0 0 0 33.5 5 1.5 1.5 0 0 1 35 6.5z" data-original="#7a838b"></path>
+          <path fill="#5d6972" d="M12 5V1H9v4a8 8 0 0 0 8 8h3a8 8 0 0 1-8-8z" data-original="#5d6972"></path>
+          <path fill="#f96464" d="M41 17v10.343a4 4 0 0 1-1.172 2.829L37 33h22a4 4 0 0 0 4-4V17a4 4 0 0 0-4-4H45a4 4 0 0 0-4 4z" data-original="#f96464"></path>
+          <path fill="#faaf42" d="M55 27a6.993 6.993 0 0 1-6.214-10.214 7 7 0 1 0 9.428 9.428A6.964 6.964 0 0 1 55 27z" data-original="#faaf42"></path>
+          <path fill="#db4040" d="M44 26V13.141A3.991 3.991 0 0 0 41 17v10.343a4 4 0 0 1-1.172 2.829L37 33h22a3.992 3.992 0 0 0 3.859-3H48a4 4 0 0 1-4-4z" data-original="#db4040"></path>
+          <path fill="#7a838b" d="M19 17a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1zm10 3a1 1 0 0 0 1-1v-1a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1z" data-original="#7a838b"></path>
+          <g fill="#f96464">
+            <path d="M49.487 24.127a1 1 0 1 0-.974 1.746l.78.437a5.66 5.66 0 0 0 5.413 0l.781-.437a1 1 0 0 0-.974-1.746l-.783.436a3.665 3.665 0 0 1-3.461 0zM26.706 29.31l.781-.437a1 1 0 1 0-.974-1.746l-.783.436a3.665 3.665 0 0 1-3.461 0l-.782-.436a1 1 0 1 0-.974 1.746l.78.437a5.66 5.66 0 0 0 5.413 0z" data-original="#f96464"></path>
+          </g>
         </g>
       </svg>
+
+icon_new_bulb:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on && variables.timeout < 2000 ? 'on' : null;
+        return `
+          <svg viewBox="0 0 64 64">
+            <style>
+              @keyframes on {
+                0% {
+                  transform: scale(0.85);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.95);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                100% {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 0.8s;
+                transform-origin: center;
+              }
+            </style>
+            <g xmlns="http://www.w3.org/2000/svg" data-name="Layer 32">
+              <rect width="20" height="4" x="22" y="53" fill="#707172" data-original="#707172" rx="2"/>
+              <rect width="20" height="4" x="22" y="49" fill="#565656" data-original="#565656" rx="2"/>
+              <rect width="20" height="4" x="22" y="45" fill="#707172" data-original="#707172" rx="2"/>
+              <path class="${state} light-color" fill="#ffcb4f" d="M52 23a20 20 0 1 0-31.73 16.178A4.082 4.082 0 0 1 22 42.47v.446A2.019 2.019 0 0 0 24 45h16a2 2 0 0 0 2-2v-.535a4.048 4.048 0 0 1 1.71-3.272A19.948 19.948 0 0 0 52 23z" data-original="#ffcb4f"/>
+              <path fill="#565656" d="M26 57h12a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z" data-original="#565656"/>
+              <path class="${state} light-color" fill="#ffcb4f" style="filter: brightness(2);" d="m47.265 13.469-1.7 1.062a16.036 16.036 0 0 1 1.4 2.823l1.87-.708a18.075 18.075 0 0 0-1.57-3.177zM37.408 7.94a16.129 16.129 0 0 1 5.886 3.738l1.413-1.416a18.146 18.146 0 0 0-6.622-4.2z" data-original="#fcbe42"/>
+            </g>
+          </svg>
+        `;
+      ]]]
+
+icon_new_ring_light:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on && variables.timeout < 2000 ? 'on' : null;
+        return `
+          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 64 64">
+            <style>
+              @keyframes on {
+                0% {
+                  transform: scale(0.85);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.95);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                100% {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 0.8s;
+                transform-origin: center;
+              }
+            </style>
+            <g data-name="Layer 32">
+              <path  class="${state} light-color" fill="#ffcb4f" d="M32 3a16 16 0 1 0 16 16A16 16 0 0 0 32 3zm0 28a12 12 0 1 1 12-12 12 12 0 0 1-12 12z" data-original="#ffcb4f"/>
+              <path fill="#c7ced1" d="M28 34h8v3a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-3z" data-original="#c7ced1"/>
+              <path fill="#b3babc" d="M30 39h4v10h-4zm-6 22h-4l8-8h4zm17 0h4l-9-8h-4z" data-original="#b3babc"/>
+              <path fill="#c7ced1" d="M28 49h8v4h-8z" data-original="#c7ced1"/>
+              <path  class="${state} light-color" fill="#ffcb4f" d="M52 18h4v2h-4zm-3.183-9.871 3.464-2 1 1.732-3.464 2zm.002 21.737 1-1.732 3.464 2-1 1.732zM8 18h4v2H8zm2.715-10.134 1-1.732 3.464 2-1 1.732zm.002 22.265 3.464-2 1 1.732-3.464 2z" data-original="#ffcb4f"/>
+            </g>
+          </svg>
+        `;
+      ]]]
+
+icon_new_at_home:
+  custom_fields:
+    icon: >
+      <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 64 64">
+        <g data-name="Layer 33">
+          <path fill="#d6e4e8" d="M1 27h62L32 1z" data-original="#d6e4e8"/>
+          <path fill="#baced3" d="M32 6 7 27v36h50V27z" data-original="#baced3"/>
+          <path fill="#c67a60" d="M51 38H35l-2 9h20zm-8-11a8 8 0 0 1 8 8v3H35v-3a8 8 0 0 1 8-8z" data-original="#c67a60"/>
+          <path fill="#b26049" d="M44.5 27.145A7.985 7.985 0 0 0 35 35v3h3v-3a8 8 0 0 1 6.5-7.855z" data-original="#b26049"/>
+          <path fill="#62b5e8" d="M24 47h-6a8 8 0 0 0-8 8v8h22v-8a8 8 0 0 0-8-8z" data-original="#62b5e8"/>
+          <path fill="#44a7d8" d="M21 47h-3a8 8 0 0 0-8 8v8h3v-8a8 8 0 0 1 8-8z" data-original="#44a7d8"/>
+          <path fill="#f7d1c6" d="M15 33h12v8a6 6 0 0 1-6 6 6 6 0 0 1-6-6v-8z" data-original="#f7d1c6"/>
+          <path fill="#f4b19f" d="M18 41v-8h-3v8a5.978 5.978 0 0 0 7.5 5.8A6 6 0 0 1 18 41z" data-original="#f4b19f"/>
+          <path fill="#c67a60" d="M25 28a1 1 0 0 0-1-1h-6.5a4.5 4.5 0 0 0-4.5 4.5 4.5 4.5 0 0 0 4.5 4.5h.894A6.737 6.737 0 0 0 24 33l3 3v-6a1 1 0 0 0-1-1 1 1 0 0 1-1-1z" data-original="#c67a60"/>
+          <path fill="#b26049" d="M16 31.5a4.5 4.5 0 0 1 4.5-4.5h-3a4.5 4.5 0 0 0 0 9h.894a6.755 6.755 0 0 0 1.141-.109A4.5 4.5 0 0 1 16 31.5z" data-original="#b26049"/>
+          <path fill="#f7d1c6" d="M27 37h1a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-1v-4z" data-original="#f7d1c6"/>
+          <path fill="#f4b19f" d="M15 41h-1a2 2 0 0 1-2-2 2 2 0 0 1 2-2h1v4z" data-original="#f4b19f"/>
+          <path fill="#f2a7b1" d="M46 47h-6a8 8 0 0 0-8 8v8h22v-8a8 8 0 0 0-8-8z" data-original="#f2a7b1"/>
+          <path fill="#e8859b" d="M43 47h-3a8 8 0 0 0-8 8v8h3v-8a8 8 0 0 1 8-8z" data-original="#e8859b"/>
+          <path fill="#f7d1c6" d="M43 47a6 6 0 0 1-6-6v-5l2.613-.435a16.007 16.007 0 0 0 6.244-2.47L46 33l3 3v5a6 6 0 0 1-6 6z" data-original="#f7d1c6"/>
+          <path fill="#f4b19f" d="M40 41v-3.306a2 2 0 0 1 1.671-1.973l.942-.156A15.976 15.976 0 0 0 47.1 34.1L46 33l-.143.095a16.014 16.014 0 0 1-6.249 2.47L37 36v4.589a6.412 6.412 0 0 0 3.955 6.02 5.639 5.639 0 0 0 3.545.191A6 6 0 0 1 40 41z" data-original="#f4b19f"/>
+          <path fill="#f7d1c6" d="M49 37h1a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-1v-4z" data-original="#f7d1c6"/>
+          <path fill="#f4b19f" d="M37 41h-1a2 2 0 0 1-2-2 2 2 0 0 1 2-2h1v4z" data-original="#f4b19f"/>
+          <g fill="#c67a60">
+            <circle cx="18" cy="39" r="1" data-original="#c67a60"/>
+            <circle cx="24" cy="39" r="1" data-original="#c67a60"/>
+            <circle cx="40" cy="39" r="1" data-original="#c67a60"/>
+            <circle cx="46" cy="39" r="1" data-original="#c67a60"/>
+          </g>
+        </g>
+      </svg>
+
+icon_new_away:
+  custom_fields:
+    icon: >
+      <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 64 64">
+        <g data-name="Layer 32">
+          <path fill="#d6e4e8" d="M47 9h6v12h-6zm6 52H11V27l21-16 21 16z" data-original="#37d1bb"/>
+          <path fill="#baced3" d="M55.887 29.121 32 11 8.113 29.121A3.187 3.187 0 0 1 3 26.582a3.187 3.187 0 0 1 1.261-2.538L32 3l27.739 21.044A3.187 3.187 0 0 1 61 26.582a3.187 3.187 0 0 1-5.113 2.539zM45 5h10v4H45z" data-original="#19bca1"/>
+          <rect width="22" height="18" x="21" y="35" fill="#ffcb4f" data-original="#ffcb4f" rx="2"/>
+          <g fill="#f2b640">
+            <path d="M23 30v5h4v-5a5 5 0 0 1 5-5 5 5 0 0 1 5 5v5h4v-5a9 9 0 0 0-9-9 9 9 0 0 0-9 9z" data-original="#f2b640"/>
+            <circle cx="32" cy="42" r="2" data-original="#f2b640"/>
+            <path d="M32 49a1 1 0 0 1-1-1v-4a1 1 0 0 1 2 0v4a1 1 0 0 1-1 1z" data-original="#f2b640"/>
+          </g>
+        </g>
+      </svg>
+
+icon_new_fan:
+  custom_fields:
+    icon: >
+      [[[
+        let path = `
+          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 58 58">
+            <g fill="none">
+              <path fill="#bdc3c7" d="M36.16 23.2a19.124 19.124 0 0 0 5.55-11.574 8.9 8.9 0 0 0-2.505-7.382 14.114 14.114 0 0 0-4.89-3.19 11.86 11.86 0 0 0-10.215.213 7.392 7.392 0 0 0-3.968 4.126 5.314 5.314 0 0 0 1.168 5.932 15.42 15.42 0 0 1 3.045 4.245 6.168 6.168 0 0 1 .594 5.167zm-3.111 14.08a6.142 6.142 0 0 0 .607 5.154 15.388 15.388 0 0 0 3.031 4.244 5.313 5.313 0 0 1 1.174 5.932 7.405 7.405 0 0 1-3.955 4.126 11.858 11.858 0 0 1-10.216.211 14.152 14.152 0 0 1-4.9-3.19 8.932 8.932 0 0 1-2.49-7.382 19.088 19.088 0 0 1 5.55-11.587zm4.232-12.325a6.145 6.145 0 0 0 5.154-.606 15.19 15.19 0 0 0 4.244-3.049 5.285 5.285 0 0 1 5.932-1.16 7.4 7.4 0 0 1 4.126 3.96 11.861 11.861 0 0 1 .211 10.216 14.156 14.156 0 0 1-3.19 4.9 8.948 8.948 0 0 1-7.382 2.491A19.071 19.071 0 0 1 34.8 36.173zM23.2 21.844A19.017 19.017 0 0 0 11.616 16.3a8.907 8.907 0 0 0-7.369 2.491 14.152 14.152 0 0 0-3.19 4.9 11.857 11.857 0 0 0 .2 10.216 7.43 7.43 0 0 0 4.137 3.953 5.3 5.3 0 0 0 5.932-1.16 15.17 15.17 0 0 1 4.244-3.045 6.12 6.12 0 0 1 5.168-.593z" data-original="#bdc3c7"/>
+              <path fill="#547580" d="M29.012 20a9 9 0 1 1-9.007 8.979A9.011 9.011 0 0 1 29.012 20z" data-original="#547580"/>
+              <path fill="#84b5cb" d="M28.985 33a4.01 4.01 0 1 1 .008 0z" data-original="#84b5cb"/>
+            </g>
+          </svg>
+        `,
+        style = `
+          <svg viewBox="0 0 50 50">
+            <style>
+              @keyframes rotate {
+                0% {
+                  visibility: visible;
+                  transform: rotate(0deg) translateZ(0);
+                }
+                100% {
+                  transform: rotate(1080deg) translateZ(0);
+                }
+              }
+              .start {
+                animation: rotate 2.8s ease-in;
+                transform-origin: center;
+                fill: #5daeea;
+                visibility: hidden;
+                will-change: transform;
+              }
+              .on {
+                animation: rotate 1.8s linear infinite;
+                transform-origin: center;
+                fill: #5daeea;
+                animation-delay: 2.8s;
+                visibility: hidden;
+                will-change: transform;
+              }
+              .end {
+                animation: rotate 2.8s;
+                transform-origin: center;
+                fill: #9ca2a5;
+                animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1);
+                will-change: transform;
+              }
+              .start_timeout {
+                animation: rotate 1.8s linear infinite;
+                transform-origin: center;
+                fill: #5daeea;
+                visibility: hidden;
+                will-change: transform;
+              }
+              .end_timeout {
+                fill: #9ca2a5;
+              }
+            </style>
+        `;
+        if (variables.state_on && variables.timeout < 2000) {
+          return `${style}<g class="start">${path}</g><g class="on">${path}</g></svg>`;
+        }
+        if (variables.state === 'off' && variables.timeout < 2000) {
+          return `${style}<g class="end">${path}</g></svg>`;
+        }
+        if (variables.state_on && variables.timeout > 2000) {
+          return `${style}<g class="start_timeout">${path}</g></svg>`;
+        } else {
+          return `${style}<g class="end_timeout">${path}</g></svg>`;
+        }
+      ]]]
 
 icon_plex:
   custom_fields:
